@@ -134,6 +134,10 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} BEM FTII Universitas Stikubank Semarang — Kabinet Sinergi Nyata. Seluruh hak cipta dilindungi.</p>
           <div className="footer-tech-meta">
             <span>Universitas Stikubank Semarang · Digital Youth Entrepreneurial University</span>
+            <span style={{ margin: '0 8px', opacity: 0.4 }}>•</span>
+            <Link to="/admin" style={{ color: 'inherit', textDecoration: 'none', opacity: 0.8, fontWeight: 600 }}>
+              Portal Admin & Pengurus →
+            </Link>
           </div>
         </div>
       </div>
