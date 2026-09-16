@@ -4,30 +4,30 @@ export const initialAnggota: Anggota[] = [
   // 1. Gubernur & Wakil Gubernur
   {
     id: 'ang-1',
-    nama: 'Muhammad Raihan Pratama',
-    nim: '2210511012',
+    nama: 'Tatryan Kautsar Al-Firdaus',
+    nim: '2610511001',
     divisi: 'Gubernur',
     jabatan: 'Gubernur Mahasiswa FTII',
     prodi: 'Teknik Informatika',
-    angkatan: '2022',
-    foto_url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    angkatan: '2026',
+    foto_url: '/img/anggota/gubernur-tatryan.png',
     bio: 'Berkomitmen membawa BEM FTII menjadi akselerator inovasi teknologi berdaya saing global dan menjunjung integritas.',
-    instagram: '@raihanpratama.id',
-    linkedin: 'linkedin.com/in/raihan-pratama',
+    instagram: '@tatryan.kautsar',
+    linkedin: 'linkedin.com/in/tatryan-kautsar',
     urutan: 1
   },
   {
     id: 'ang-2',
-    nama: 'Anindya Laksmi Putri',
-    nim: '2210521034',
+    nama: 'Raflian Taofiq Z.M',
+    nim: '2610521002',
     divisi: 'Wakil Gubernur',
     jabatan: 'Wakil Gubernur Mahasiswa FTII',
     prodi: 'Sistem Informasi',
-    angkatan: '2022',
-    foto_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+    angkatan: '2026',
+    foto_url: '/img/anggota/wagub-raflian.png',
     bio: 'Menyelaraskan sinergi seluruh elemen fakultas demi terciptanya iklim organisasi yang sehat, suportif, dan adaptif.',
-    instagram: '@anindyalaksmi',
-    linkedin: 'linkedin.com/in/anindya-laksmi',
+    instagram: '@rafliantaofiq',
+    linkedin: 'linkedin.com/in/rafliantaofiq',
     urutan: 2
   },
 
@@ -362,7 +362,7 @@ Kolaborasi ini mencakup:
 - Kuliah praktisi reguler setiap bulan oleh Lead Engineer industri.
 - Fasilitas cloud computing gratis untuk riset skripsi berbasis AI dan Big Data.
 
-Gubernur Mahasiswa FTII, Muhammad Raihan Pratama, menyatakan bahwa inisiatif ini dirancang agar lulusan FTII memiliki kesiapan kerja yang langsung diakui oleh pasar global.`,
+Gubernur Mahasiswa FTII, Tatryan Kautsar Al-Firdaus, menyatakan bahwa inisiatif ini dirancang agar lulusan FTII memiliki kesiapan kerja yang langsung diakui oleh pasar global.`,
     penulis: 'Divisi Inteks FTII',
     gambar_url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80',
     published_at: '2026-08-28'

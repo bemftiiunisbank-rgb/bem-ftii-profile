@@ -20,7 +20,7 @@ export const supabase = isSupabaseConfigured
 // ==============================================================================
 function getStorage<T>(key: string, defaultData: T[]): T[] {
   try {
-    const saved = localStorage.getItem(`bem_ftii_v3_${key}`);
+    const saved = localStorage.getItem(`bem_ftii_v4_${key}`);
     if (saved) {
       return JSON.parse(saved);
     }
@@ -32,7 +32,7 @@ function getStorage<T>(key: string, defaultData: T[]): T[] {
 
 function setStorage<T>(key: string, data: T[]): void {
   try {
-    localStorage.setItem(`bem_ftii_v3_${key}`, JSON.stringify(data));
+    localStorage.setItem(`bem_ftii_v4_${key}`, JSON.stringify(data));
   } catch (e) {
     console.error(`Failed saving ${key} to storage:`, e);
   }
