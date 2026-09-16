@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Plus, 
   Edit2, 
   Trash2, 
   Search, 
   X, 
-  Check 
+  Check,
+  UploadCloud,
+  Upload,
+  AlertCircle
 } from 'lucide-react';
 import { 
   fetchAnggotaList, 
@@ -25,6 +28,11 @@ export const AdminAnggota: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState<'create' | 'edit'>('create');
   const [editingId, setEditingId] = useState<string | null>(null);
+
+  // Upload State
+  const [uploadLoading, setUploadLoading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Form State
   const [formData, setFormData] = useState<Omit<Anggota, 'id'>>({
@@ -70,6 +78,8 @@ export const AdminAnggota: React.FC = () => {
   const handleOpenCreate = () => {
     setModalMode('create');
     setEditingId(null);
+    setUploadError(null);
+    setUploadLoading(false);
     setFormData({
       nama: '',
       nim: '',
@@ -89,6 +99,8 @@ export const AdminAnggota: React.FC = () => {
   const handleOpenEdit = (anggota: Anggota) => {
     setModalMode('edit');
     setEditingId(anggota.id);
+    setUploadError(null);
+    setUploadLoading(false);
     setFormData({
       nama: anggota.nama,
       nim: anggota.nim || '',
@@ -103,6 +115,88 @@ export const AdminAnggota: React.FC = () => {
       urutan: anggota.urutan || 10
     });
     setIsModalOpen(true);
+  };
+
+  const processImageFile = (file: File) => {
+    // Validasi ukuran: mendukung hingga 25 MB (melebihi batas minimal 20 MB yang diminta)
+    const maxSizeBytes = 25 * 1024 * 1024;
+    if (file.size > maxSizeBytes) {
+      setUploadError('Ukuran file melebihi batas maksimal 25 MB.');
+      return;
+    }
+
+    if (!file.type.startsWith('image/')) {
+      setUploadError('Format file tidak didukung. Harap unggah gambar (JPG, PNG, atau WEBP).');
+      return;
+    }
+
+    setUploadError(null);
+    setUploadLoading(true);
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        // Otomatis optimasi kanvas resolusi tajam (1200px) agar cepat dimuat di web
+        const maxDimension = 1200;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > maxDimension) {
+            height = Math.round((height * maxDimension) / width);
+            width = maxDimension;
+          }
+        } else {
+          if (height > maxDimension) {
+            width = Math.round((width * maxDimension) / height);
+            height = maxDimension;
+          }
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, 0, 0, width, height);
+
+          const isPng = file.type === 'image/png';
+          const optimizedDataUrl = canvas.toDataURL(isPng ? 'image/png' : 'image/jpeg', 0.9);
+          setFormData((prev) => ({ ...prev, foto_url: optimizedDataUrl }));
+        } else {
+          setFormData((prev) => ({ ...prev, foto_url: event.target?.result as string }));
+        }
+        setUploadLoading(false);
+      };
+      img.onerror = () => {
+        setUploadError('Gagal memproses file gambar.');
+        setUploadLoading(false);
+      };
+      img.src = event.target?.result as string;
+    };
+    reader.onerror = () => {
+      setUploadError('Gagal membaca file dari penyimpanan perangkat.');
+      setUploadLoading(false);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      processImageFile(file);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      processImageFile(file);
+    }
   };
 
   const handleDelete = async (id: string, nama: string) => {
@@ -357,15 +451,86 @@ export const AdminAnggota: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Upload Foto Profil (Mendukung hingga 25 MB) */}
                 <div className="form-group">
-                  <label>URL Foto Profil</label>
+                  <label style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span>Foto Profil Pengurus</span>
+                    <span style={{ fontSize: '0.72rem', color: '#64748b', fontWeight: 600 }}>Maksimal 25 MB</span>
+                  </label>
+
+                  {/* Hidden Input File */}
                   <input
-                    type="text"
-                    className="form-control"
-                    value={formData.foto_url}
-                    onChange={(e) => setFormData({ ...formData, foto_url: e.target.value })}
-                    placeholder="https://example.com/foto.jpg (atau tautan Unsplash/drive)"
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    accept="image/png, image/jpeg, image/jpg, image/webp"
+                    style={{ display: 'none' }}
                   />
+
+                  {formData.foto_url ? (
+                    <div className="admin-upload-preview-box">
+                      <div className="admin-upload-thumb-wrap">
+                        <img 
+                          src={formData.foto_url} 
+                          alt="Pratinjau Foto Profil" 
+                          className="admin-upload-thumb-img" 
+                        />
+                      </div>
+                      <div className="admin-upload-preview-info">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#15803d', fontSize: '0.85rem', fontWeight: 700 }}>
+                          <Check size={16} />
+                          <span>Foto Berhasil Diunggah</span>
+                        </div>
+                        <span style={{ fontSize: '0.75rem', color: '#64748b' }}>
+                          File foto siap dipublikasikan ke struktur dan profil.
+                        </span>
+                        <div className="admin-upload-preview-actions">
+                          <button
+                            type="button"
+                            className="btn btn-secondary btn-sm"
+                            onClick={() => fileInputRef.current?.click()}
+                            disabled={uploadLoading}
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', padding: '0.35rem 0.75rem' }}
+                          >
+                            <Upload size={13} />
+                            <span>Ganti File</span>
+                          </button>
+                          <button
+                            type="button"
+                            className="btn-icon delete"
+                            onClick={() => setFormData(prev => ({ ...prev, foto_url: '' }))}
+                            title="Hapus Foto"
+                          >
+                            <Trash2 size={15} />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div 
+                      className={`admin-upload-dropzone ${uploadLoading ? 'loading' : ''}`}
+                      onClick={() => fileInputRef.current?.click()}
+                      onDragOver={(e) => e.preventDefault()}
+                      onDrop={handleDrop}
+                    >
+                      <div className="admin-upload-dropzone-content">
+                        <div className="admin-upload-icon-circle">
+                          <UploadCloud size={24} color="#b91c1c" />
+                        </div>
+                        <div className="admin-upload-dropzone-text">
+                          <strong>{uploadLoading ? 'Memproses dan mengoptimasi gambar...' : 'Klik untuk Unggah Foto atau Tarik File ke Sini'}</strong>
+                          <span>Mendukung file kamera & desain hingga 25 MB (JPG, PNG, WEBP)</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {uploadError && (
+                    <div style={{ color: '#b91c1c', fontSize: '0.78rem', marginTop: '0.45rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <AlertCircle size={14} />
+                      <span>{uploadError}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div className="form-group">
