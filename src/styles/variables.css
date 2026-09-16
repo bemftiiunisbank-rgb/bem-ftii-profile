@@ -1,0 +1,76 @@
+:root {
+  /* Brand Red Color Palette (FTII Signature Crimson & Deep Burgundy) */
+  --color-primary-900: #450a0a;
+  --color-primary-800: #7f1d1d;
+  --color-primary-700: #991b1b;
+  --color-primary-600: #b91c1c;
+  --color-primary-500: #dc2626;
+  --color-primary: #b91c1c;
+  --color-primary-light: #dc2626;
+  --color-primary-subtle: rgba(185, 28, 28, 0.05);
+  --color-primary-glow: rgba(185, 28, 28, 0.15);
+
+  /* Secondary & Institutional Accents */
+  --color-accent-gold: #b45309;
+  --color-accent-amber: #d97706;
+  --color-tech-slate: #334155;
+
+  /* Editorial White Porcelain Foundations (Huashu-Design / Pentagram Editorial) */
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-card: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+  --bg-subtle-red: rgba(185, 28, 28, 0.03);
+  --bg-light-gray: #f1f5f9;
+  --bg-warm-paper: #faf9f6;
+
+  /* Architectural Hairlines & Dividers */
+  --border-subtle: rgba(15, 23, 42, 0.09);
+  --border-hairline: rgba(15, 23, 42, 0.14);
+  --border-card: rgba(15, 23, 42, 0.08);
+  --border-red: rgba(185, 28, 28, 0.28);
+  --border-red-solid: #b91c1c;
+
+  /* High Contrast Deep Ink Typography */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+
+  /* Status Colors */
+  --status-success: #047857;
+  --status-success-bg: rgba(16, 185, 129, 0.08);
+  --status-warning: #b45309;
+  --status-warning-bg: rgba(245, 158, 11, 0.08);
+  --status-info: #1d4ed8;
+  --status-info-bg: rgba(59, 130, 246, 0.08);
+
+  /* Refined Elevation (Architectural & Editorial) */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.02);
+  --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(15, 23, 42, 0.03);
+  --shadow-card-hover: 0 8px 24px rgba(185, 28, 28, 0.06), 0 2px 6px rgba(15, 23, 42, 0.04);
+
+  /* Typography System (Display Serif + Swiss Grotesque Body) */
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+
+  /* Transitions */
+  --transition-fast: 0.16s ease-in-out;
+  --transition-normal: 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing & Layout */
+  --max-width: 1240px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  /* Seni Garis Batik Tradisional-Modern Kawung Klasik (SVG Fine-Line Watermark Pattern) */
+  --pattern-batik: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='50' cy='25' rx='14' ry='23' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Cellipse cx='50' cy='75' rx='14' ry='23' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Cellipse cx='25' cy='50' rx='23' ry='14' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Cellipse cx='75' cy='50' rx='23' ry='14' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Cpath d='M50 43 L57 50 L50 57 L43 50 Z' stroke='%23991b1b' stroke-width='0.6' stroke-opacity='0.045' fill='none'/%3E%3Ccircle cx='50' cy='50' r='1.8' fill='%23991b1b' fill-opacity='0.05'/%3E%3Cellipse cx='0' cy='0' rx='14' ry='23' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Cellipse cx='100' cy='0' rx='14' ry='23' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Cellipse cx='0' cy='100' rx='14' ry='23' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Cellipse cx='100' cy='100' rx='14' ry='23' stroke='%23b91c1c' stroke-width='0.75' stroke-opacity='0.04' fill='none'/%3E%3Ccircle cx='0' cy='0' r='2' fill='%230f172a' fill-opacity='0.035'/%3E%3Ccircle cx='100' cy='0' r='2' fill='%230f172a' fill-opacity='0.035'/%3E%3Ccircle cx='0' cy='100' r='2' fill='%230f172a' fill-opacity='0.035'/%3E%3Ccircle cx='100' cy='100' r='2' fill='%230f172a' fill-opacity='0.035'/%3E%3C/svg%3E");
+}

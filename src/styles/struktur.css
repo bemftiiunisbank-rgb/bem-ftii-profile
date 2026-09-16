@@ -1,0 +1,859 @@
+/* ==============================================================================
+   STRUKTUR ORGANISASI & DIREKTORI FUNGSIONARIS BEM FTII UNISBANK
+   Swiss Editorial & Institutional Governance Design System
+   ============================================================================== */
+
+/* 1. Governance Architecture Matrix Deck */
+.governance-matrix-deck {
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: 3.5rem 2.5rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.governance-deck-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.governance-kicker {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.governance-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.65rem;
+}
+
+.governance-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.governance-tier-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.governance-tier {
+  text-align: center;
+}
+
+.tier-tag-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(185, 28, 28, 0.05);
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  padding: 0.3rem 0.9rem;
+  border-radius: 3px;
+  margin-bottom: 1.25rem;
+}
+
+.tier-nodes-row {
+  width: 100%;
+}
+
+.tier-2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.tier-3-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gov-card {
+  background: #fafbfc;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 1.75rem;
+  text-align: left;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.gov-card:hover {
+  background: #ffffff;
+  border-color: rgba(185, 28, 28, 0.35);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.gov-card.gov-presidium {
+  background: #fffcfc;
+  border-top: 3.5px solid var(--color-primary);
+}
+
+.gov-card.gov-bph {
+  border-top: 3.5px solid var(--color-primary-700);
+}
+
+.gov-card.gov-divisi {
+  border-top: 3.5px solid rgba(185, 28, 28, 0.4);
+}
+
+.gov-card-badge {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.45rem;
+}
+
+.gov-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.gov-card-sub {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.gov-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.governance-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.85rem 0;
+}
+
+.connector-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-hairline);
+}
+
+.connector-label {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ==============================================================================
+   2. Huashu Design (Pentagram / Müller-Brockmann) Architectural Filter Console
+   ============================================================================== */
+.filter-dossier-console {
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-top: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 2rem 2.25rem;
+  margin-bottom: 3.5rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+/* Console Header Bar */
+.console-header-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-hairline);
+  flex-wrap: wrap;
+}
+
+.console-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.console-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+
+.console-kicker-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.console-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.console-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.console-count-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.02em;
+}
+
+.console-count-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.console-count-val strong {
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.console-count-unit {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.console-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.console-reset-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(185, 28, 28, 0.04);
+}
+
+/* Architectural Search Row */
+.console-search-row {
+  margin: 1.25rem 0;
+}
+
+.console-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.console-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.console-search-input {
+  width: 100%;
+  padding: 0.75rem 2.75rem 0.75rem 2.65rem;
+  background: #fafbfc;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: all var(--transition-fast);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.02);
+}
+
+.console-search-input:focus {
+  background: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.08);
+}
+
+.console-search-input::placeholder {
+  color: var(--text-faint);
+  font-size: 0.84rem;
+}
+
+.console-search-clear {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.06);
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.console-search-clear:hover {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Dual-Axis Filtration Matrix */
+.console-filter-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.matrix-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.65rem 0;
+}
+
+.matrix-row:not(:last-child) {
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.matrix-axis-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.axis-num {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.axis-divider {
+  color: var(--border-hairline);
+  font-weight: 400;
+}
+
+.axis-title {
+  color: var(--text-muted);
+}
+
+.matrix-tabs-track {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+/* Rectangular Rationalist Tabs (Anti-AI-Slop, No Pills) */
+.matrix-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 0.8rem;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.matrix-tab-btn:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+  background: #f8fafc;
+}
+
+.matrix-tab-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(185, 28, 28, 0.25);
+}
+
+.tab-label {
+  letter-spacing: 0.01em;
+}
+
+.tab-mono-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  line-height: 1;
+}
+
+.matrix-tab-btn:hover .tab-mono-badge {
+  background: rgba(15, 23, 42, 0.12);
+  color: var(--text-primary);
+}
+
+.matrix-tab-btn.active .tab-mono-badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+/* Active Trail / Breadcrumbs */
+.console-active-trail {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.trail-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.trail-label {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.trail-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  background: #fef2f2;
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  color: var(--color-primary);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-xs);
+  font-weight: 500;
+}
+
+.trail-chip strong {
+  font-weight: 700;
+}
+
+.trail-chip button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  padding: 0 0.15rem;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.trail-chip button:hover {
+  color: var(--color-primary-900);
+}
+
+.trail-count {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.trail-count strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* 3. Members Grid */
+.anggota-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.member-card {
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.member-card:hover {
+  border-color: rgba(185, 28, 28, 0.35);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.member-photo-container {
+  height: 290px;
+  position: relative;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.member-card:hover .member-photo {
+  transform: scale(1.04);
+}
+
+.member-badge-divisi {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.member-info {
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.member-name {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.member-jabatan {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.member-academic-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  margin-bottom: 0.85rem;
+  width: fit-content;
+  font-weight: 500;
+}
+
+.prodi-code-pill {
+  background: rgba(185, 28, 28, 0.08);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.68rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
+}
+
+.member-bio {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.member-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-hairline);
+  padding-top: 0.85rem;
+  margin-top: auto;
+}
+
+.member-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  padding: 0.3rem 0.65rem;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.member-social-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.members-loading-box,
+.members-empty-box {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  color: var(--text-muted);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-box-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-faint);
+  margin: 0 auto 1.25rem auto;
+}
+
+.empty-box-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.empty-box-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Responsive Breakpoints System */
+@media (max-width: 1040px) {
+  .governance-matrix-deck {
+    padding: 2.25rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .tier-3-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .tier-2-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .anggota-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .matrix-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .filter-dossier-console {
+    padding: 1.35rem 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .console-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .console-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .console-title {
+    font-size: 1.2rem;
+  }
+  .member-info {
+    padding: 1.35rem 1.15rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .governance-matrix-deck {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2.25rem;
+  }
+  .governance-title {
+    font-size: 1.45rem;
+  }
+  .governance-deck-header {
+    margin-bottom: 2rem;
+  }
+  .gov-card {
+    padding: 1.25rem 1rem;
+  }
+  .connector-label {
+    font-size: 0.58rem;
+  }
+  .matrix-tabs-track {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .matrix-tab-btn {
+    padding: 0.38rem 0.65rem;
+    font-size: 0.76rem;
+  }
+  .tab-mono-badge {
+    font-size: 0.68rem;
+    padding: 0.08rem 0.35rem;
+  }
+  .anggota-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .member-photo-container {
+    height: 250px;
+  }
+  .member-info {
+    padding: 1.25rem 1rem;
+  }
+  .console-active-trail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .governance-matrix-deck {
+    padding: 1.25rem 0.85rem;
+  }
+  .filter-dossier-console {
+    padding: 1.15rem 0.85rem;
+  }
+  .console-search-input {
+    padding: 0.65rem 2.25rem 0.65rem 2.35rem;
+    font-size: 0.82rem;
+  }
+  .member-photo-container {
+    height: 230px;
+  }
+  .member-name {
+    font-size: 1.05rem;
+  }
+  .member-academic-tag {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.5rem;
+  }
+}

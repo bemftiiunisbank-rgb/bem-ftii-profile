@@ -1,0 +1,333 @@
+.kontak-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr;
+  gap: 3.5rem;
+}
+
+.kontak-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.kontak-card-main {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.sekretariat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.sekretariat-item:last-child {
+  margin-bottom: 0;
+}
+
+.sekretariat-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: rgba(185, 28, 28, 0.08);
+  border: 1px solid rgba(185, 28, 28, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.sekretariat-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.sekretariat-val {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Narahubung Phone Badges */
+.kontak-phone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.kontak-phone-badge {
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 0.55rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.kontak-phone-badge:hover {
+  background: #ffffff;
+  border-color: rgba(185, 28, 28, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.1);
+}
+
+.phone-badge-role {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(185, 28, 28, 0.08);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+}
+
+.phone-badge-val {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.phone-badge-action {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Unisbank Almamater Card in Kontak (Light Editorial) */
+.almamater-kontak-card {
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-top: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.almamater-kontak-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.almamater-logo-wrapper {
+  background: #0b0f19;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  max-width: 220px;
+}
+
+.almamater-logo-img {
+  max-height: 28px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.almamater-tag {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(185, 28, 28, 0.06);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(185, 28, 28, 0.18);
+}
+
+.almamater-kontak-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.almamater-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.almamater-slogan {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.almamater-link {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all var(--transition-fast);
+}
+
+.almamater-link:hover {
+  color: var(--color-primary-800);
+  transform: translateX(2px);
+}
+
+/* Jam Operasional Card (Light Editorial) */
+.jam-card {
+  background: #ffffff;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.jam-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.jam-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(185, 28, 28, 0.08);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jam-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.jam-table {
+  width: 100%;
+  font-size: 0.86rem;
+  border-collapse: collapse;
+}
+
+.jam-table td {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.jam-table tr:last-child td {
+  border-bottom: none;
+}
+
+.jam-day {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.jam-time {
+  text-align: right;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.jam-time.highlight {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.jam-footer-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--border-hairline);
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Breakpoints System */
+@media (max-width: 960px) {
+  .kontak-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .kontak-card-main {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kontak-card-main {
+    padding: 1.25rem 0.85rem;
+  }
+  .sekretariat-item {
+    gap: 0.85rem;
+    margin-bottom: 1.35rem;
+  }
+  .sekretariat-icon-box {
+    width: 38px;
+    height: 38px;
+  }
+  .kontak-phone-badge {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 0.65rem 0.85rem;
+  }
+  .phone-badge-role {
+    font-size: 0.68rem;
+  }
+  .phone-badge-val {
+    font-size: 0.84rem;
+  }
+  .phone-badge-action {
+    font-size: 0.72rem;
+    align-self: flex-end;
+  }
+  .almamater-kontak-card {
+    padding: 1.25rem 0.85rem;
+  }
+  .almamater-logo-wrapper {
+    max-width: 180px;
+  }
+  .jam-card {
+    padding: 1.25rem 0.85rem;
+  }
+  .jam-table {
+    font-size: 0.8rem;
+  }
+}
