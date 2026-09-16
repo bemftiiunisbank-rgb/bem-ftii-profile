@@ -7,12 +7,17 @@ import {
   Calendar
 } from 'lucide-react';
 import { fetchProkerList, fetchAnggotaList } from '../lib/supabase';
+import { initialAnggota } from '../data/mockData';
 import type { Proker, Anggota } from '../types/database';
 import '../styles/home.css';
 
+const defaultLeaders: Anggota[] = initialAnggota.filter(
+  a => a.divisi === 'Gubernur' || a.divisi === 'Wakil Gubernur'
+);
+
 export const Home: React.FC = () => {
   const [prokers, setProkers] = useState<Proker[]>([]);
-  const [leaders, setLeaders] = useState<Anggota[]>([]);
+  const [leaders, setLeaders] = useState<Anggota[]>(defaultLeaders);
 
   useEffect(() => {
     async function loadData() {
@@ -23,7 +28,9 @@ export const Home: React.FC = () => {
         ]);
         setProkers(prokerData.slice(0, 3));
         const lead = anggotaData.filter(a => a.divisi === 'Gubernur' || a.divisi === 'Wakil Gubernur');
-        setLeaders(lead);
+        if (lead && lead.length > 0) {
+          setLeaders(lead);
+        }
       } catch (err) {
         console.error('Failed loading home data:', err);
       }

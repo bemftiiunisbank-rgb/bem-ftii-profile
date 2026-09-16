@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Search, RotateCcw, X } from 'lucide-react';
 import { InstagramIcon, LinkedinIcon } from '../components/SocialIcons';
 import { fetchAnggotaList } from '../lib/supabase';
+import { initialAnggota } from '../data/mockData';
 import type { Anggota, DivisiType } from '../types/database';
 import '../styles/struktur.css';
 
@@ -43,8 +44,8 @@ export const Struktur: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<FilterCategory>(() => resolveInitialCategory(initialDivisiParam));
   const [selectedAngkatan, setSelectedAngkatan] = useState<string>(() => initialAngkatanParam || 'Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [anggotaList, setAnggotaList] = useState<Anggota[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [anggotaList, setAnggotaList] = useState<Anggota[]>(() => initialAnggota);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const urlDivisi = searchParams.get('divisi');

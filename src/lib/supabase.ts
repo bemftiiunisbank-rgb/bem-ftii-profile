@@ -39,7 +39,27 @@ function setStorage<T>(key: string, data: T[]): void {
 }
 
 // In-memory data initialized from storage or defaults
-let localAnggota: Anggota[] = getStorage('anggota', initialAnggota);
+let localAnggota: Anggota[] = getStorage('anggota', initialAnggota).map(m => {
+  if (m.id === 'ang-1' || m.divisi === 'Gubernur') {
+    return {
+      ...m,
+      nama: 'Tatryan Kautsar Al-Firdaus',
+      angkatan: '2026',
+      foto_url: '/img/anggota/gubernur-tatryan.png',
+      jabatan: 'Gubernur Mahasiswa FTII'
+    };
+  }
+  if (m.id === 'ang-2' || m.divisi === 'Wakil Gubernur') {
+    return {
+      ...m,
+      nama: 'Raflian Taofiq Z.M',
+      angkatan: '2026',
+      foto_url: '/img/anggota/wagub-raflian.png',
+      jabatan: 'Wakil Gubernur Mahasiswa FTII'
+    };
+  }
+  return m;
+});
 let localProker: Proker[] = getStorage('proker', initialProker);
 let localAspirasi: Aspirasi[] = getStorage('aspirasi', initialAspirasi);
 let localBerita: Berita[] = getStorage('berita', initialBerita);
