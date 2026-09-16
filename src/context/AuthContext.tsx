@@ -75,6 +75,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setUser(googleUser);
           localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(googleUser));
           setLoading(false);
+
+          // If coming back from OAuth redirect with access_token hash, forward directly to /admin
+          if (_event === 'SIGNED_IN' && window.location.hash.includes('access_token=')) {
+            if (!window.location.pathname.startsWith('/admin')) {
+              window.location.replace('/admin');
+            }
+          }
         } else if (_event === 'SIGNED_OUT') {
           setUser(null);
           localStorage.removeItem(LOCAL_STORAGE_KEY);

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Shield } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import '../styles/navbar.css';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,6 +71,30 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Button */}
           <div className="navbar-cta-wrap">
+            {isAuthenticated && (
+              <Link 
+                to="/admin" 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  padding: '0.45rem 0.85rem',
+                  background: 'rgba(185, 28, 28, 0.08)',
+                  border: '1.5px solid rgba(185, 28, 28, 0.3)',
+                  borderRadius: '6px',
+                  color: 'var(--color-primary, #b91c1c)',
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <Shield size={14} />
+                <span>Panel Admin</span>
+              </Link>
+            )}
+
             <Link to="/aspirasi" className="btn-navbar-cta">
               <span>Layanan Aspirasi</span>
               <ArrowRight size={14} />
@@ -88,6 +114,18 @@ export const Navbar: React.FC = () => {
         {mobileMenuOpen && (
           <div className="navbar-mobile-menu">
             <ul className="mobile-nav-list">
+              {isAuthenticated && (
+                <li style={{ padding: '0.4rem 0' }}>
+                  <Link 
+                    to="/admin" 
+                    className="mobile-nav-link"
+                    style={{ color: '#b91c1c', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+                  >
+                    <Shield size={16} />
+                    <span>Buka Panel Admin Pengurus →</span>
+                  </Link>
+                </li>
+              )}
               {navItems.map((item) => (
                 <li key={item.path}>
                   <NavLink

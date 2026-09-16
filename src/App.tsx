@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
@@ -35,6 +35,26 @@ const ScrollToTop: React.FC = () => {
   return null;
 };
 
+// Automatic OAuth redirect to /admin if returning from Google / Supabase auth callback
+const OAuthAutoRedirect: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const hasOAuthHash = window.location.hash && (
+      window.location.hash.includes('access_token=') ||
+      window.location.hash.includes('refresh_token=')
+    );
+    const hasOAuthCode = window.location.search && window.location.search.includes('code=');
+
+    if ((hasOAuthHash || hasOAuthCode) && !location.pathname.startsWith('/admin')) {
+      navigate('/admin', { replace: true });
+    }
+  }, [location, navigate]);
+
+  return null;
+};
+
 // Public Layout Wrapper
 const PublicLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="app-layout">
@@ -50,6 +70,7 @@ export const App: React.FC = () => {
   return (
     <AuthProvider>
       <ScrollToTop />
+      <OAuthAutoRedirect />
       <Routes>
         {/* Admin Login */}
         <Route path="/admin/login" element={<AdminLogin />} />
