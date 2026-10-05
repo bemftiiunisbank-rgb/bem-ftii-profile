@@ -14,11 +14,13 @@ export default function handler(req, res) {
     cabinet: 'Kabinet Sinergi Nyata',
     period: '2026/2027',
     endpoints: {
-      "GET /api/anggota": "Daftar fungsionaris & pengurus 7 divisi",
+      "GET /api/anggota": "Daftar 50 fungsionaris & pengguna BEM FTII (filter: ?divisi=&prodi=&angkatan=&role=&search=&page=&limit=)",
+      "GET /api/users": "Alias endpoint /api/anggota (50 user untuk pengujian Postman)",
+      "GET /api/pengguna": "Alias endpoint /api/anggota (50 user Bahasa Indonesia)",
       "GET /api/proker": "Katalog program kerja & agenda kabinet",
-      "GET /api/berita": "Warta resmi & siaran pers organisasi",
       "POST /api/aspirasi": "Pengiriman tiket aspirasi mahasiswa"
     },
-    documentation: "Gunakan aplikasi seperti Postman untuk menguji endpoint di atas."
+    documentation: "Gunakan aplikasi Postman atau browser untuk menguji endpoint di atas."
   });
 }
+
